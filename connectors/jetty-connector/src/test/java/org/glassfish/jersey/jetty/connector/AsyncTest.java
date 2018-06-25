@@ -110,8 +110,6 @@ public class AsyncTest extends JerseyTest {
                 }
             });
             asyncResponse.setTimeout(1, TimeUnit.SECONDS);
-            asyncResponse.resume(Response.status(Response.Status.SERVICE_UNAVAILABLE)
-                    .entity("Operation time out.").build());
 
             new Thread(new Runnable() {
 
