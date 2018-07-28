@@ -28,6 +28,7 @@ import java.util.function.Function;
 import java.util.regex.MatchResult;
 import java.util.stream.Collectors;
 
+import javax.ws.rs.container.ResourceInfo;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.PathSegment;
@@ -444,14 +445,14 @@ public class UriRoutingContext implements RoutingContext {
 
     @Override
     public Method getResourceMethod() {
-        return endpoint instanceof ResourceMethodInvoker
-                ? ((ResourceMethodInvoker) endpoint).getResourceMethod() : null;
+        return endpoint instanceof ResourceInfo
+                ? ((ResourceInfo) endpoint).getResourceMethod() : null;
     }
 
     @Override
     public Class<?> getResourceClass() {
-        return endpoint instanceof ResourceMethodInvoker
-                ? ((ResourceMethodInvoker) endpoint).getResourceClass() : null;
+        return endpoint instanceof ResourceInfo
+                ? ((ResourceInfo) endpoint).getResourceClass() : null;
     }
 
     @Override
